@@ -9,13 +9,13 @@
     <style>
         :root {
             --bg-base: #040812;
-            --bg-surface: rgba(13, 22, 41, 0.7);
+            --bg-surface: rgba(13, 22, 41, 0.75);
             --accent-cyan: #00f0ff;
             --accent-magenta: #ff0055;
             --accent-green: #00ff88;
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
-            --glass-border: rgba(0, 240, 255, 0.15);
+            --glass-border: rgba(0, 240, 255, 0.2);
         }
 
         * {
@@ -31,13 +31,11 @@
             color: var(--text-main);
             overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(0, 240, 255, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 85% 80%, rgba(ff, 0, 85, 0.05) 0%, transparent 40%),
-                linear-gradient(rgba(4, 8, 18, 0.92), rgba(4, 8, 18, 0.92)),
-                url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M0 40L40 0H0v40zM40 40V0L0 40h40z" fill="%2300f0ff" fill-opacity="0.015"/></svg>');
+                radial-gradient(circle at 15% 20%, rgba(0, 240, 255, 0.08) 0%, transparent 45%),
+                radial-gradient(circle at 85% 80%, rgba(255, 0, 85, 0.08) 0%, transparent 45%);
+            background-attachment: fixed;
         }
 
-        /* Nav Header */
         header {
             position: fixed;
             top: 20px;
@@ -45,7 +43,7 @@
             transform: translateX(-50%);
             width: 90%;
             max-width: 1200px;
-            background: rgba(8, 14, 28, 0.75);
+            background: rgba(8, 14, 28, 0.85);
             backdrop-filter: blur(16px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
@@ -54,7 +52,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
         }
 
         .brand {
@@ -96,23 +94,6 @@
             color: var(--accent-cyan);
         }
 
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: var(--accent-cyan);
-            transition: width 0.3s;
-            box-shadow: 0 0 8px var(--accent-cyan);
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -120,14 +101,13 @@
             justify-content: center;
             padding: 8rem 2rem 4rem;
             text-align: center;
-            position: relative;
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 16px;
+            padding: 8px 18px;
             background: rgba(0, 240, 255, 0.08);
             border: 1px solid rgba(0, 240, 255, 0.3);
             border-radius: 30px;
@@ -139,21 +119,21 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-size: clamp(2.3rem, 5.5vw, 4.2rem);
             font-weight: 800;
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 1.5rem;
             letter-spacing: -1px;
         }
 
         .gradient-text {
-            background: linear-gradient(135deg, #fff 30%, var(--accent-cyan) 70%, var(--accent-magenta) 100%);
+            background: linear-gradient(135deg, #ffffff 20%, var(--accent-cyan) 60%, var(--accent-magenta) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-dim);
             max-width: 720px;
             margin: 0 auto 2.5rem;
@@ -161,30 +141,26 @@
         }
 
         .btn-cyber {
-            position: relative;
             display: inline-flex;
             align-items: center;
             gap: 12px;
             padding: 1rem 2.5rem;
             background: linear-gradient(135deg, var(--accent-cyan), #0072ff);
-            color: #000;
+            color: #040812;
             font-weight: 800;
             border: none;
             border-radius: 14px;
             cursor: pointer;
             text-decoration: none;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease;
             box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
         }
 
         .btn-cyber:hover {
-            transform: translateY(-4px) scale(1.02);
+            transform: translateY(-4px);
             box-shadow: 0 0 50px rgba(0, 240, 255, 0.6);
-            color: #000;
         }
 
-        /* Interactive Threat Cards */
         .section {
             max-width: 1200px;
             margin: 0 auto;
@@ -204,7 +180,7 @@
 
         .threat-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
@@ -214,31 +190,14 @@
             border-radius: 24px;
             padding: 2.5rem;
             position: relative;
-            overflow: hidden;
             backdrop-filter: blur(12px);
             transition: all 0.4s ease;
         }
 
-        .threat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-        }
-
-        .threat-card:hover::before {
-            transform: translateX(100%);
-        }
-
         .threat-card:hover {
             transform: translateY(-8px);
-            border-color: rgba(0, 240, 255, 0.4);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 240, 255, 0.1);
+            border-color: rgba(0, 240, 255, 0.5);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 240, 255, 0.15);
         }
 
         .card-icon-wrapper {
@@ -253,16 +212,15 @@
             font-size: 1.6rem;
             color: var(--accent-cyan);
             margin-bottom: 1.5rem;
-            transition: transform 0.3s;
+            transition: all 0.3s;
         }
 
         .threat-card:hover .card-icon-wrapper {
             transform: scale(1.1) rotate(5deg);
             background: var(--accent-cyan);
-            color: #000;
+            color: #040812;
         }
 
-        /* Interactive Simulator Game */
         .simulator-box {
             background: var(--bg-surface);
             border: 1px solid var(--glass-border);
@@ -271,7 +229,7 @@
             max-width: 800px;
             margin: 0 auto;
             backdrop-filter: blur(16px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
         }
 
         .terminal-header {
@@ -301,7 +259,7 @@
         }
 
         .sim-mail {
-            background: rgba(4, 8, 18, 0.6);
+            background: rgba(4, 8, 18, 0.8);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 16px;
             padding: 1.8rem;
@@ -338,30 +296,29 @@
         }
 
         .btn-phish {
-            background: rgba(255, 0, 85, 0.1);
-            border-color: rgba(255, 0, 85, 0.3);
+            background: rgba(255, 0, 85, 0.12);
+            border-color: rgba(255, 0, 85, 0.4);
             color: var(--accent-magenta);
         }
 
         .btn-phish:hover {
             background: var(--accent-magenta);
             color: #fff;
-            box-shadow: 0 0 25px rgba(255, 0, 85, 0.4);
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.5);
         }
 
         .btn-safe {
-            background: rgba(0, 255, 136, 0.1);
-            border-color: rgba(0, 255, 136, 0.3);
+            background: rgba(0, 255, 136, 0.12);
+            border-color: rgba(0, 255, 136, 0.4);
             color: var(--accent-green);
         }
 
         .btn-safe:hover {
             background: var(--accent-green);
-            color: #000;
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+            color: #040812;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.5);
         }
 
-        /* Footer */
         footer {
             border-top: 1px solid var(--glass-border);
             padding: 3rem 2rem;
@@ -371,7 +328,7 @@
         }
 
         @media (max-width: 768px) {
-            header { nav { display: none; } }
+            header nav { display: none; }
             .sim-actions { grid-template-columns: 1fr; }
         }
     </style>
@@ -451,7 +408,7 @@
                 <div class="terminal-title">MAIL_INSPECT_v2.4.exe</div>
             </div>
 
-            <div class="sim-mail" id="mail-card">
+            <div class="sim-mail">
                 <div class="sim-meta">
                     <strong>FROM:</strong> <span id="mail-from" style="color: var(--accent-cyan);">security-update@austrian-banking-portal.com</span><br>
                     <strong>SUBJECT:</strong> <span id="mail-subject">[DRINGEND] Sicherheitszertifikat abgelaufen</span>
