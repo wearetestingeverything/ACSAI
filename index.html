@@ -87,7 +87,6 @@
             font-size: 0.9rem;
             font-weight: 600;
             transition: all 0.3s;
-            position: relative;
         }
 
         nav a:hover {
@@ -95,11 +94,11 @@
         }
 
         .hero {
-            min-height: 100vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8rem 2rem 4rem;
+            padding: 9rem 2rem 4rem;
             text-align: center;
         }
 
@@ -119,7 +118,7 @@
         }
 
         .hero h1 {
-            font-size: clamp(2.3rem, 5.5vw, 4.2rem);
+            font-size: clamp(2.2rem, 5vw, 4rem);
             font-weight: 800;
             line-height: 1.15;
             margin-bottom: 1.5rem;
@@ -164,18 +163,104 @@
         .section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 6rem 2rem;
+            padding: 5rem 2rem;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-title {
             font-size: 2.2rem;
             font-weight: 800;
             margin-bottom: 0.8rem;
+        }
+
+        /* Vereins-Ausschreibung Box */
+        .official-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-left: 4px solid var(--accent-cyan);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            backdrop-filter: blur(12px);
+        }
+
+        .official-title {
+            font-size: 1.4rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .official-name {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+            background: rgba(0, 240, 255, 0.1);
+            padding: 0.8rem 1.2rem;
+            border-radius: 10px;
+            border: 1px dashed rgba(0, 240, 255, 0.3);
+            margin: 1rem 0;
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Accordion für Statuten */
+        .statuten-accordion {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .accordion-item {
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .accordion-header {
+            padding: 1.2rem 1.8rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            user-select: none;
+        }
+
+        .accordion-header:hover {
+            color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 1.8rem;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 300px;
+            padding: 0 1.8rem 1.5rem;
+        }
+
+        .accordion-item.active .accordion-header {
+            color: var(--accent-cyan);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .threat-grid {
@@ -212,13 +297,6 @@
             font-size: 1.6rem;
             color: var(--accent-cyan);
             margin-bottom: 1.5rem;
-            transition: all 0.3s;
-        }
-
-        .threat-card:hover .card-icon-wrapper {
-            transform: scale(1.1) rotate(5deg);
-            background: var(--accent-cyan);
-            color: #040812;
         }
 
         .simulator-box {
@@ -341,23 +419,78 @@
             <span class="brand-text">ACSAI</span>
         </div>
         <nav>
-            <a href="#initiative">Initiative</a>
+            <a href="#verein">Über den Verein</a>
+            <a href="#statuten">Statuten</a>
             <a href="#threats">Bedrohungen</a>
             <a href="#simulator">Defense Lab</a>
         </nav>
     </header>
 
-    <section id="initiative" class="hero">
+    <section class="hero">
         <div>
             <div class="hero-badge">
-                <i class="fa-solid fa-terminal"></i> Austrian Cyber Security Awareness Initiative
+                <i class="fa-solid fa-building-columns"></i> Offizielle Vereinsinitiative
             </div>
             <h1>Menschliche Cyber-Abwehrkräfte <br><span class="gradient-text">nachhaltig stärken.</span></h1>
-            <p>Wir machen digitale Risiken greifbar. ACSAI verbindet modernste Awareness-Konzepte mit verständlicher Aufklärung für Bevölkerung, Schulen und Unternehmen.</p>
+            <p>Die gemeinnützige Initiative für verständliche Aufklärung, digitale Zivilcourage und Sicherheitskompetenz in Österreich.</p>
             <a href="#simulator" class="btn-cyber">
                 <span>Defense Lab starten</span>
                 <i class="fa-solid fa-arrow-right"></i>
             </a>
+        </div>
+    </section>
+
+    <section id="verein" class="section">
+        <div class="official-box">
+            <div class="official-title">
+                <i class="fa-solid fa-certificate"></i> Offizielle Vereinsbezeichnung nach § 3 VerG
+            </div>
+            <p>Für behördliche Einreichungen, Verzeichnisse und Verträge führt die Organisation den vollen, gesetzlich geschützten Namen:</p>
+            <div class="official-name">
+                Austrian Cyber Security Awareness Initiative – Verein zur Förderung digitaler Sicherheit (ACSAI)
+            </div>
+            <p style="color: var(--text-dim); font-size: 0.95rem;">
+                Sitz des Vereins: <strong>Wien, Österreich</strong> | Tätigkeitsbereich: <strong>Bundesgebiet Österreich & international</strong>
+            </p>
+        </div>
+    </section>
+
+    <section id="statuten" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Vereinsstatuten im Überblick</h2>
+            <p style="color: var(--text-dim);">Die rechtliche und organisatorische Grundlage unseres Handels.</p>
+        </div>
+
+        <div class="statuten-accordion">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>§ 2: Vereinszweck & Gemeinnützigkeit</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    Der Verein verfolgt ausschließlich und unmittelbar gemeinnützige Zwecke (§§ 34 ff BAO). Ziel ist die Förderung des allgemeinen Bewusstseins für Cybersicherheit, digitale Zivilcourage und Datenschutz in der Bevölkerung, in Bildungsstätten und in KMUs.
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>§ 3 & § 4: Tätigkeiten & Finanzielle Mittel</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    Die Erreichung des Zwecks erfolgt ideell durch Vorträge, Workshops, Publikationen, Online-Plattformen und Vernetzung. Die Aufbringung finanzieller Mittel geschieht über Mitgliedsbeiträge, Spenden, Förderungen und Sponsoring.
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>§ 7 & § 10: Leitung & Organe</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    Die Organe sind die Generalversammlung, der Vorstand, zwei Rechnungsprüfer und das Schlichtungsorgan. Der Leitungsvorstand vertritt den Verein nach außen und führt die Geschäfte.
+                </div>
+            </div>
         </div>
     </section>
 
@@ -369,25 +502,19 @@
 
         <div class="threat-grid">
             <div class="threat-card">
-                <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-user-ninja"></i>
-                </div>
+                <div class="card-icon-wrapper"><i class="fa-solid fa-user-ninja"></i></div>
                 <h3 style="margin-bottom: 0.8rem;">Social Engineering</h3>
                 <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6;">Targeted Manipulation und CEO-Fraud. Wie Angreifer psychologische Muster ausnutzen und wie man sich wirksam schützt.</p>
             </div>
 
             <div class="threat-card">
-                <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-fish-fins"></i>
-                </div>
+                <div class="card-icon-wrapper"><i class="fa-solid fa-fish-fins"></i></div>
                 <h3 style="margin-bottom: 0.8rem;">Spear Phishing & Smishing</h3>
                 <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6;">Täuschend echte Köder in E-Mails und Messenger-Diensten erkennen. Das Auge für feine Anomalien schärfen.</p>
             </div>
 
             <div class="threat-card">
-                <div class="card-icon-wrapper">
-                    <i class="fa-solid fa-key"></i>
-                </div>
+                <div class="card-icon-wrapper"><i class="fa-solid fa-key"></i></div>
                 <h3 style="margin-bottom: 0.8rem;">Credential Security</h3>
                 <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6;">Identitätsschutz neu gedacht. Warum Passwörter alleine nicht mehr reichen und FIDO2/Passkeys die Zukunft sind.</p>
             </div>
@@ -438,6 +565,11 @@
     </footer>
 
     <script>
+        function toggleAccordion(element) {
+            const item = element.parentElement;
+            item.classList.toggle('active');
+        }
+
         const scenarios = [
             {
                 from: "security-update@austrian-banking-portal.com",
