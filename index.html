@@ -85,4 +85,450 @@
 
         nav a {
             color: var(--text-dim);
-            text-
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent-cyan);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--accent-cyan);
+            transition: width 0.3s;
+            box-shadow: 0 0 8px var(--accent-cyan);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            background: rgba(0, 240, 255, 0.08);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 30px;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin-bottom: 2rem;
+            box-shadow: 0 0 20px rgba(0, 240, 255, 0.15);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 30%, var(--accent-cyan) 70%, var(--accent-magenta) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 720px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .btn-cyber {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-cyan), #0072ff);
+            color: #000;
+            font-weight: 800;
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+        }
+
+        .btn-cyber:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 0 50px rgba(0, 240, 255, 0.6);
+            color: #000;
+        }
+
+        /* Interactive Threat Cards */
+        .section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+
+        .threat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .threat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(12px);
+            transition: all 0.4s ease;
+        }
+
+        .threat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s;
+        }
+
+        .threat-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .threat-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(0, 240, 255, 0.1);
+        }
+
+        .card-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1.5rem;
+            transition: transform 0.3s;
+        }
+
+        .threat-card:hover .card-icon-wrapper {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--accent-cyan);
+            color: #000;
+        }
+
+        /* Interactive Simulator Game */
+        .simulator-box {
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: 28px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            backdrop-filter: blur(16px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .terminal-title {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-left: auto;
+        }
+
+        .sim-mail {
+            background: rgba(4, 8, 18, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.8rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .sim-meta {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .sim-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .btn-action {
+            padding: 1.2rem;
+            border-radius: 14px;
+            border: 1px solid transparent;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+
+        .btn-phish {
+            background: rgba(255, 0, 85, 0.1);
+            border-color: rgba(255, 0, 85, 0.3);
+            color: var(--accent-magenta);
+        }
+
+        .btn-phish:hover {
+            background: var(--accent-magenta);
+            color: #fff;
+            box-shadow: 0 0 25px rgba(255, 0, 85, 0.4);
+        }
+
+        .btn-safe {
+            background: rgba(0, 255, 136, 0.1);
+            border-color: rgba(0, 255, 136, 0.3);
+            color: var(--accent-green);
+        }
+
+        .btn-safe:hover {
+            background: var(--accent-green);
+            color: #000;
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header { nav { display: none; } }
+            .sim-actions { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <i class="fa-solid fa-shield-halved brand-icon"></i>
+            <span class="brand-text">ACSAI</span>
+        </div>
+        <nav>
+            <a href="#initiative">Initiative</a>
+            <a href="#threats">Bedrohungen</a>
+            <a href="#simulator">Defense Lab</a>
+        </nav>
+    </header>
+
+    <section id="initiative" class="hero">
+        <div>
+            <div class="hero-badge">
+                <i class="fa-solid fa-terminal"></i> Austrian Cyber Security Awareness Initiative
+            </div>
+            <h1>Menschliche Cyber-Abwehrkräfte <br><span class="gradient-text">nachhaltig stärken.</span></h1>
+            <p>Wir machen digitale Risiken greifbar. ACSAI verbindet modernste Awareness-Konzepte mit verständlicher Aufklärung für Bevölkerung, Schulen und Unternehmen.</p>
+            <a href="#simulator" class="btn-cyber">
+                <span>Defense Lab starten</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="threats" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Fokus & Kernfelder</h2>
+            <p style="color: var(--text-dim);">Wo Bedrohungen entstehen und wie wir Bewusstsein schaffen.</p>
+        </div>
+
+        <div class="threat-grid">
+            <div class="threat-card">
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-user-ninja"></i>
+                </div>
+                <h3 style="margin-bottom: 0.8rem;">Social Engineering</h3>
+                <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6;">Targeted Manipulation und CEO-Fraud. Wie Angreifer psychologische Muster ausnutzen und wie man sich wirksam schützt.</p>
+            </div>
+
+            <div class="threat-card">
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-fish-fins"></i>
+                </div>
+                <h3 style="margin-bottom: 0.8rem;">Spear Phishing & Smishing</h3>
+                <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6;">Täuschend echte Köder in E-Mails und Messenger-Diensten erkennen. Das Auge für feine Anomalien schärfen.</p>
+            </div>
+
+            <div class="threat-card">
+                <div class="card-icon-wrapper">
+                    <i class="fa-solid fa-key"></i>
+                </div>
+                <h3 style="margin-bottom: 0.8rem;">Credential Security</h3>
+                <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6;">Identitätsschutz neu gedacht. Warum Passwörter alleine nicht mehr reichen und FIDO2/Passkeys die Zukunft sind.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="simulator" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Interactive Defense Lab</h2>
+            <p style="color: var(--text-dim);">Analysiere die eingehende Nachricht. Erkennst du den Cyber-Angriff?</p>
+        </div>
+
+        <div class="simulator-box">
+            <div class="terminal-header">
+                <div class="terminal-dot dot-red"></div>
+                <div class="terminal-dot dot-yellow"></div>
+                <div class="terminal-dot dot-green"></div>
+                <div class="terminal-title">MAIL_INSPECT_v2.4.exe</div>
+            </div>
+
+            <div class="sim-mail" id="mail-card">
+                <div class="sim-meta">
+                    <strong>FROM:</strong> <span id="mail-from" style="color: var(--accent-cyan);">security-update@austrian-banking-portal.com</span><br>
+                    <strong>SUBJECT:</strong> <span id="mail-subject">[DRINGEND] Sicherheitszertifikat abgelaufen</span>
+                </div>
+                <p id="mail-body" style="line-height: 1.6; font-size: 0.95rem;">
+                    Sehr geehrte Damen und Herren,<br><br>
+                    Aufgrund neuer EU-Richtlinien muss Ihr Zugangskonto umgehend erneut verifiziert werden. Wenn Sie die Verifizierung nicht innerhalb von 12 Stunden durchführen, wird Ihr Konto temporär gesperrt.
+                </p>
+            </div>
+
+            <div class="sim-actions">
+                <button class="btn-action btn-phish" onclick="evaluateSim(true)">
+                    <i class="fa-solid fa-triangle-exclamation"></i> Phishing-Angriff!
+                </button>
+                <button class="btn-action btn-safe" onclick="evaluateSim(false)">
+                    <i class="fa-solid fa-circle-check"></i> Legitime Nachricht
+                </button>
+            </div>
+
+            <div id="sim-feedback" style="margin-top: 1.5rem; text-align: center; font-weight: 700; font-family: 'Fira Code', monospace; min-height: 30px;"></div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ACSAI – Austrian Cyber Security Awareness Initiative | Verein zur Förderung digitaler Sicherheit</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; color: #475569;">ZVR: [In Eintragung] | Wien, Österreich</p>
+    </footer>
+
+    <script>
+        const scenarios = [
+            {
+                from: "security-update@austrian-banking-portal.com",
+                subject: "[DRINGEND] Sicherheitszertifikat abgelaufen",
+                body: "Sehr geehrte Damen und Herren,<br><br>Aufgrund neuer EU-Richtlinien muss Ihr Zugangskonto umgehend erneut verifiziert werden. Wenn Sie die Verifizierung nicht innerhalb von 12 Stunden durchführen, wird Ihr Konto temporär gesperrt.",
+                isPhish: true,
+                reason: "Volltreffer! Falsche Domain (austrian-banking-portal.com) & künstlicher Zeitdruck."
+            },
+            {
+                from: "notifications@github.com",
+                subject: "[GitHub] Security alert: New sign-in from Chrome on macOS",
+                body: "We noticed a new sign-in to your GitHub account from a new device in Vienna, Austria. If this was you, no action is needed.",
+                isPhish: false,
+                reason: "Korrekt! Das ist eine echte Sicherheitsbenachrichtigung von der offiziellen Domain."
+            },
+            {
+                from: "it-support@unternehmen-internal.net",
+                subject: "Passwort-Reset angefordert",
+                body: "Hallo,<br>jemand hat das Zurücksetzen Ihres Passworts angefordert. Klicken Sie hier, um ein neues Passwort einzugeben. Ignorieren Sie diese Mail, wenn Sie dies nicht waren.",
+                isPhish: true,
+                reason: "Richtig erkannt! Gefälschte interne E-Mail mit verdächtiger `.net`-Endung."
+            }
+        ];
+
+        let currentIdx = 0;
+
+        function evaluateSim(userSelectedPhish) {
+            const current = scenarios[currentIdx];
+            const feedback = document.getElementById('sim-feedback');
+
+            if (userSelectedPhish === current.isPhish) {
+                feedback.style.color = "var(--accent-green)";
+                feedback.innerHTML = `<i class="fa-solid fa-check"></i> ${current.reason}`;
+            } else {
+                feedback.style.color = "var(--accent-magenta)";
+                feedback.innerHTML = `<i class="fa-solid fa-xmark"></i> Falsch eingeschätzt! ${current.reason}`;
+            }
+
+            currentIdx = (currentIdx + 1) % scenarios.length;
+            
+            setTimeout(() => {
+                const next = scenarios[currentIdx];
+                document.getElementById('mail-from').innerText = next.from;
+                document.getElementById('mail-subject').innerText = next.subject;
+                document.getElementById('mail-body').innerHTML = next.body;
+                feedback.innerText = "";
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
